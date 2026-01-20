@@ -6,7 +6,7 @@ package com.mycompany.stackexercise;
 
 /**
  *
- * @author USER
+ * @author Nichie
  */
 
 import java.util.Stack;
