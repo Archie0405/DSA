@@ -1,0 +1,38 @@
+// Function to sort a stack of integers in ascending order
+FUNCTION sortStack(stack)
+    // Create a temporary stack
+    tempStack = empty stack
+
+    // Loop until the original stack is empty
+    WHILE stack is not empty DO
+        // Take the top element from the stack
+        temp = POP(stack)
+
+        // Move elements from tempStack back to stack if they are greater
+        WHILE tempStack is not empty AND TOP(tempStack) > temp DO
+            PUSH(POP(tempStack), stack)
+
+        // Place temp in the correct position
+        PUSH(temp, tempStack)
+
+    // Transfer sorted elements back to the original stack
+    WHILE tempStack is not empty DO
+        PUSH(POP(tempStack), stack)
+END FUNCTION
+
+// Function to insert a value into a sorted stack
+FUNCTION insertIntoStack(stack, value)
+    // Create a temporary stack
+    tempStack = empty stack
+
+    // Move elements greater than value into tempStack
+    WHILE stack is not empty AND TOP(stack) > value DO
+        PUSH(POP(stack), tempStack)
+
+    // Insert the new value
+    PUSH(value, stack)
+
+    // Move elements back from tempStack
+    WHILE tempStack is not empty DO
+        PUSH(POP(tempStack), stack)
+END FUNCTION
