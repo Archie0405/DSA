@@ -1,0 +1,22 @@
+// Program to add or delete numbers from a list based on user input
+BEGIN
+  INITIALIZE list as empty list of integers
+
+  REPEAT
+    PROMPT user to enter an integer or '0' to stop
+    READ number
+
+    IF number == 0 THEN
+      EXIT loop
+    ELSE IF number is in list THEN
+      REMOVE number from list
+      PRINT "Deleted " + number
+    ELSE
+      ADD number to list
+      PRINT "Added " + number
+    ENDIF
+
+    PRINT "Current list: " + list
+  UNTIL user stops
+
+END
