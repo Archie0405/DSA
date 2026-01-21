@@ -1,0 +1,25 @@
+FUNCTION QueueSortInsert(Q)
+    // Step 1: Get the size of the queue
+    n = length(Q)
+
+    // Step 2: Create a temporary queue to hold sorted elements
+    SortedQ = empty queue
+
+    // Step 3: Iterate through each element in the original queue
+    FOR i = 0 TO n - 1 DO
+        key = dequeue(Q)     // Remove front element to insert in sorted order
+
+        // Step 4: Shift elements from SortedQ to Q until correct position is found
+        WHILE NOT isEmpty(SortedQ) AND front(SortedQ) < key DO
+            enqueue(Q, dequeue(SortedQ))
+        END WHILE
+
+        // Step 5: Insert the key into its correct position in SortedQ
+        enqueue(SortedQ, key)
+
+        // Step 6: Move remaining elements back to Q
+        WHILE NOT isEmpty(SortedQ) DO
+            enqueue(Q, dequeue(SortedQ))
+        END WHILE
+    END FOR
+END FUNCTION
