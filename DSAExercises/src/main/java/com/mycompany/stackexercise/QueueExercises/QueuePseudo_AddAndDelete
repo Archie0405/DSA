@@ -1,0 +1,21 @@
+BEGIN  
+  INITIALIZE queue as empty queue of strings  
+
+  REPEAT  
+    PROMPT user to enter a name or 'STOP' to end  
+    READ name  
+
+    IF name == "STOP" THEN  
+      EXIT loop  
+    ELSE IF name is in queue THEN  
+      DEQUEUE name from queue  
+      PRINT "Deleted " + name  
+    ELSE  
+      ENQUEUE name into queue  
+      PRINT "Added " + name  
+    ENDIF  
+
+    PRINT "Current queue: " + queue  
+  UNTIL user ends  
+
+END
